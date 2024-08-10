@@ -1,0 +1,10 @@
+{
+  "id": "all-tasks-here",
+  "name": "All Tasks Here",
+  "version": "0.0.1",
+  "minAppVersion": "0.11.0",
+  "description": "Manage all your tasks from the sidebar",
+  "author": "Arkimedz",
+  "authorUrl": "www.arkimedz.com",
+  "isDesktopOnly": false
+}

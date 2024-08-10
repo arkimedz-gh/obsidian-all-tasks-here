@@ -1,0 +1,20 @@
+# OS X
+.DS_Store
+
+# Intellij
+*.iml
+.idea
+
+# npm / yarn
+node_modules
+package-lock.json
+yarn-error.log
+
+# build
+main.js
+*.js.map
+
+# Demo vault
+DemoVault/.obsidian/plugins/obsidian-plugin-todo
+DemoVault/.obsidian/plugins/hot-reload/
+DemoVault/.obsidian/workspace.json

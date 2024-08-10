@@ -1,0 +1,1 @@
+export const VIEW_TYPE_TODO = 'com.arkimedz.all-tasks-here';
