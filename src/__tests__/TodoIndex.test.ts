@@ -23,7 +23,7 @@ describe('TodoIndex', () => {
         file.path = 'test.md';
     });
 
-    test('updates file correctly when a task checkbox is clicked', async () => {
+    test('updates file correctly when checkbox is clicked for task without date', async () => {
         const initialContent = `- [ ] Task 1\n- [ ] Task 2\n- [ ] Task 3`;
         const expectedContent = `- [x] Task 1\n- [ ] Task 2\n- [ ] Task 3`;
 

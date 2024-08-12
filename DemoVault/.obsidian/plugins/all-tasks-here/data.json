@@ -1,7 +1,0 @@
-{
-  "dateFormat": "yyyy-MM-dd",
-  "dateTagFormat": "[[%date%]]",
-  "openFilesInNewLeaf": false,
-  "onlyShowCurrentFile": false,
-  "onlyShowTodosWithDate": false
-}

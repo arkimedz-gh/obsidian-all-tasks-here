@@ -51,15 +51,19 @@ export class TodoIndex {
     this.invokeListeners();
   }
 
-  setStatus(todo: TodoItem, newStatus: TodoItemStatus): void {
+  async setStatus(todo: TodoItem, newStatus: TodoItemStatus): Promise<void> {
     const file = this.vault.getAbstractFileByPath(todo.sourceFilePath) as TFile;
-    const fileContents = this.vault.read(file);
-    fileContents.then((c: string) => {
-      const newTodo = `[${newStatus === TodoItemStatus.Done ? 'x' : ' '}] ${todo.description}`;
-      const oldTodoLength = c.substring(todo.startIndex).indexOf('\n');
-      const newContents = c.substring(0, todo.startIndex) + newTodo + c.substring(todo.startIndex + oldTodoLength);
-      this.vault.modify(file, newContents);
-    });
+    const fileContents = await this.vault.read(file);
+
+    // Preserve the date in the description
+    const dateMatch = this.settings.dateTagFormat.match(/%date%/);
+    const dateTag = dateMatch && todo.actionDate ? this.settings.dateTagFormat.replace('%date%', todo.actionDate.toFormat(this.settings.dateFormat)) : '';
+    const newTodo = `[${newStatus === TodoItemStatus.Done ? 'x' : ' '}] ${todo.description}${dateTag ? ' ' + dateTag : ''}`.trim();
+
+    const oldTodoLength = fileContents.substring(todo.startIndex).indexOf('\n');
+    const newContents = fileContents.substring(0, todo.startIndex) + newTodo + fileContents.substring(todo.startIndex + oldTodoLength);
+
+    await this.vault.modify(file, newContents);
   }
 
   setSettings(settings: TodoPluginSettings): void {
