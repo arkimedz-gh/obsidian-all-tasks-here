@@ -2,6 +2,7 @@ import { TFile, Vault } from 'obsidian';
 import { TodoItem, TodoItemStatus } from '../models/TodoItem';
 import { TodoIndex } from '../models/TodoIndex';
 import { TodoPluginSettings } from '../models/TodoPluginSettings';
+import { DateTime } from 'luxon';
 
 describe('TodoIndex', () => {
     let vault: Vault;
@@ -39,6 +40,31 @@ describe('TodoIndex', () => {
             0,
             2
         );
+
+        await todoIndex.setStatus(todo, TodoItemStatus.Done);
+
+        expect(vault.modify).toHaveBeenCalledWith(file, expectedContent);
+    });
+
+    test('updates file correctly when checkbox is clicked for task with date', async () => {
+        const initialContent = `- [ ] Task 1 [[2023-05-15]]\n- [ ] Task 2\n- [ ] Task 3 [[2023-05-17]]`;
+        const expectedContent = `- [x] Task 1 [[2023-05-15]]\n- [ ] Task 2\n- [ ] Task 3 [[2023-05-17]]`;
+
+        jest.spyOn(vault, 'read').mockResolvedValue(initialContent);
+        jest.spyOn(vault, 'modify').mockResolvedValue();
+
+        const todo = new TodoItem(
+            TodoItemStatus.Todo,
+            'Task 1',
+            'test.md',
+            2,
+            24,
+            0,
+            2
+        );
+
+        // Mock the actionDate
+        todo.actionDate = DateTime.fromISO('2023-05-15');
 
         await todoIndex.setStatus(todo, TodoItemStatus.Done);
 
