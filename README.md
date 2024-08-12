@@ -24,15 +24,17 @@ A simple, lightweight plugin to help you manage your tasks in [Obsidian](https:/
 ## Screenshots
 All tasks in the sidebar
 
+![](./screenshots/screenshot1.png)
+
 Works well with other themes
 
+![](./screenshots/screenshot_dark.png)
+
+![](./screenshots/screenshot_theme1.png)
 
 ## Features
 - [ ] Don't remove done tasks immediately from sidebar
 - [ ] Allow showing all done tasks
-
-## Fix bugs
-- [x] Clicking on a task's checkbox in the sidebar doesn't work properly
 
 ## Development
 ```bash
@@ -47,4 +49,3 @@ There are several other plugins that provide similar functionality. Many are lis
 
 - [delashum/obsidian-checklist-plugin](https://github.com/delashum/obsidian-checklist-plugin)
 - [larslockefeer/obsidian-plugin-todo](https://github.com/larslockefeer/obsidian-plugin-todo): This is the single most important inspiration for this plugin.
-
