@@ -61,7 +61,8 @@ export class TodoIndex {
     const newTodo = `[${newStatus === TodoItemStatus.Done ? 'x' : ' '}] ${todo.description}${dateTag ? ' ' + dateTag : ''}`.trim();
 
     const oldTodoLength = fileContents.substring(todo.startIndex).indexOf('\n');
-    const newContents = fileContents.substring(0, todo.startIndex) + newTodo + fileContents.substring(todo.startIndex + oldTodoLength);
+    const endOfLineIndex = oldTodoLength === -1 ? fileContents.length : todo.startIndex + oldTodoLength;
+    const newContents = fileContents.substring(0, todo.startIndex) + newTodo + fileContents.substring(endOfLineIndex);
 
     await this.vault.modify(file, newContents);
   }

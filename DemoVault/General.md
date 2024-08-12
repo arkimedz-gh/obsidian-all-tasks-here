@@ -6,4 +6,4 @@
 - [ ] Schedule team meeting for next week [[2024-08-17]]
 - [ ] Submit expense report [[2024-08-03]]
 - [ ] Plan team-building activity
-- [ ] Task without a date
+- [x] Task without a date #2024-08-12
