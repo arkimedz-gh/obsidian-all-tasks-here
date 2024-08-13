@@ -12,7 +12,9 @@ export class TodoParser {
 
   async parseTasks(filePath: string, fileContents: string): Promise<TodoItem[]> {
     const pattern = /(-|\*) \[(\s|x)?\]\s(.*)/g;
-    return [...fileContents.matchAll(pattern)].map((task) => this.parseTask(filePath, task, fileContents));
+    return [...fileContents.matchAll(pattern)]
+      .map((task) => this.parseTask(filePath, task, fileContents))
+      .filter((todo) => todo.description.trim() !== '');
   }
 
   private parseTask(filePath: string, entry: RegExpMatchArray, fileContents: string): TodoItem {

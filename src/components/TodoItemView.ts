@@ -98,6 +98,7 @@ export class TodoItemView extends ItemView {
       container.createDiv('todo-item-view-section', (sectionEl) => {
         sectionEl.createEl('h3', { text: title });
         todos.forEach((todo) => {
+          if (todo.description.trim() === '') return; // Skip empty descriptions
           sectionEl.createDiv('todo-item-view-item', (el) => {
             el.createDiv('todo-item-view-item-checkbox', (el) => {
               el.createEl('input', { type: 'checkbox' }, (el) => {

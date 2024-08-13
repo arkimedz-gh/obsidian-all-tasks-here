@@ -71,3 +71,9 @@ test('parsing an outstanding todo with a specific action date and a someday/mayb
   expect(todo.actionDate.month).toEqual(2);
   expect(todo.actionDate.year).toEqual(2021);
 });
+
+test('parsing a todo with an empty description', async () => {
+  const contents = `- [ ] `;
+  const todos = await todoParser.parseTasks('/', contents);
+  expect(todos.length).toEqual(0);
+});
