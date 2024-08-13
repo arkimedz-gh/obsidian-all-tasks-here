@@ -37,7 +37,10 @@ export default class TodoPlugin extends Plugin {
           return this.dateFormatter.formatDate(date);
         },
         openFile: (filePath: string, lineNumber: number, charNumber: number = 0) => {
-          const file = this.app.vault.getAbstractFileByPath(filePath) as TFile;
+          const file = this.app.vault.getAbstractFileByPath(filePath);
+          if (!(file instanceof TFile)) {
+            return;
+          }
           const openFileInLeaf = async (leaf: WorkspaceLeaf) => {
             await leaf.openFile(file);
             const view = this.app.workspace.getActiveViewOfType(MarkdownView);

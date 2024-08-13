@@ -31,9 +31,6 @@ Works well with other themes
 
 ![](./screenshots/screenshot_theme1.png)
 
-## Features
-- [ ] Don't remove completed tasks immediately from the sidebar
-- [ ] Allow showing all completed tasks
 
 ## Development
 ```bash

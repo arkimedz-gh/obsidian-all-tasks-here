@@ -52,7 +52,10 @@ export class TodoIndex {
   }
 
   async setStatus(todo: TodoItem, newStatus: TodoItemStatus): Promise<void> {
-    const file = this.vault.getAbstractFileByPath(todo.sourceFilePath) as TFile;
+    const file = this.vault.getAbstractFileByPath(todo.sourceFilePath);
+    if (!(file instanceof TFile)) {
+      return;
+    }
     const fileContents = await this.vault.read(file);
 
     // Preserve the date in the description
@@ -79,10 +82,9 @@ export class TodoIndex {
   }
 
   private indexAbstractFile(file: TAbstractFile) {
-    if (!(file instanceof TFile)) {
-      return;
+    if (file instanceof TFile) {
+      this.indexFile(file);
     }
-    this.indexFile(file as TFile);
   }
 
   private indexFile(file: TFile) {
