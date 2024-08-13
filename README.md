@@ -1,4 +1,7 @@
 # All Tasks Here (Obsidian Plugin)
+
+[![Tests](https://github.com/arkimedz-gh/obsidian-all-tasks-here/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/arkimedz-gh/obsidian-all-tasks-here/actions/workflows/test.yml)
+
 A simple, lightweight plugin to help you manage your tasks in [Obsidian](https://obsidian.md/). It provides a single pane of glass with optional filters.
 
 ## Features
