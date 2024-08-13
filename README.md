@@ -1,5 +1,5 @@
 # All Tasks Here (Obsidian Plugin)
-A simple, lightweight plugin to help you manage your tasks in [Obsidian](https://obsidian.md/). Give you a single pane of glass with optional filters
+A simple, lightweight plugin to help you manage your tasks in [Obsidian](https://obsidian.md/). It provides a single pane of glass with optional filters.
 
 ## Features
 - Show tasks in your sidebar
@@ -10,16 +10,15 @@ A simple, lightweight plugin to help you manage your tasks in [Obsidian](https:/
 - Looks beautiful with different themes
 
 ## Settings
-**Date tag format**: Customizable tag format for due dates
+**Date tag format**: Customizable tag format for due dates.
 
-**Date format**: Customizable date format. Uses luxon under the hood. See [their documentation](https://moment.github.io/luxon/#/formatting?id=table-of-tokens) for supported tokens.
+**Date format**: Customizable date format. Uses Luxon under the hood. See [their documentation](https://moment.github.io/luxon/#/formatting?id=table-of-tokens) for supported tokens.
 
 **Open files in a new leaf**: When enabled, files opened from within the plugin will open in a new leaf rather than replacing the currently opened file.
 
 **Only show current file**: If enabled, only the current file is parsed for TODOs to improve performance for large vaults.
 
 **Only show TODOs with a date**: If enabled, only TODOs with a date will be shown.
-
 
 ## Screenshots
 All tasks in the sidebar
@@ -33,8 +32,8 @@ Works well with other themes
 ![](./screenshots/screenshot_theme1.png)
 
 ## Features
-- [ ] Don't remove done tasks immediately from sidebar
-- [ ] Allow showing all done tasks
+- [ ] Don't remove completed tasks immediately from the sidebar
+- [ ] Allow showing all completed tasks
 
 ## Development
 ```bash
